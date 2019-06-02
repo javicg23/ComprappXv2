@@ -41,33 +41,14 @@ import mycompra.app.modelo.Ticket;
  */
 public class NuevoTicket extends Fragment implements AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
 
-    private EditText editTextNombre;
-    private EditText editTextPrecio;
-    private EditText editTextCantidad;
-    private EditText editTextCaducidad;
-    private EditText editTextFecha;
-    private Spinner spinnerInventario;
-    private Spinner spinnerCategoria;
-    private Spinner spinnerSupermercado;
-    private ArrayAdapter<CharSequence> adapterInventario;
-    private ArrayAdapter<CharSequence> adapterCategoria;
-    private ArrayAdapter<CharSequence> adapterSupermercado;
-    private Button btnCancelar;
-    private Button btnAnyadir;
-    private Button btnAnyadirProducto;
-    private String fecha;
-    private String fechaTicket;
-    private Mes mes;
-    private int idMes = 0;
-    private int anyoTicket;
-    private int mesTicket;
+    private EditText editTextNombre, editTextPrecio, editTextCantidad, editTextCaducidad, editTextFecha;
+    private Spinner spinnerInventario, spinnerCategoria, spinnerSupermercado;
+    private String fecha, fechaTicket;
+    private int idMes = 0, anyoTicket, mesTicket;
     private Agregado<Producto> agregaProd = new AgregadoConcreto<>();
     private NumberFormat nf;
-    private Iterador<Mes> listaMes;
     private MesDAO mesDAO;
-    private ProductoDAO productoDAO;
-    private boolean pulsadoCaducidad = false;
-    private boolean pulsadoFecha = false;
+    private boolean pulsadoCaducidad = false, pulsadoFecha = false;
 
     public NuevoTicket() {
         // Required empty public constructor
@@ -88,25 +69,25 @@ public class NuevoTicket extends Fragment implements AdapterView.OnItemSelectedL
         editTextCaducidad = view.findViewById(R.id.editTextCaducidadNuevoTicket);
         editTextFecha = view.findViewById(R.id.editTextFechaNuevoTicket);
         editTextNombre = view.findViewById(R.id.editTextNombreNuevoTicket);
-        btnAnyadirProducto = view.findViewById(R.id.btnAnyadirProductoATicket);
-        btnAnyadir = view.findViewById(R.id.btnConfirmarNuevoTicket);
-        btnCancelar = view.findViewById(R.id.btnAtrasNuevoTicket);
+        Button btnAnyadirProducto = view.findViewById(R.id.btnAnyadirProductoATicket);
+        Button btnAnyadir = view.findViewById(R.id.btnConfirmarNuevoTicket);
+        Button btnCancelar = view.findViewById(R.id.btnAtrasNuevoTicket);
 
-        adapterCategoria = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
+        ArrayAdapter<CharSequence> adapterCategoria = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
                 R.array.categorias, android.R.layout.simple_spinner_item);
         adapterCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerCategoria.setAdapter(adapterCategoria);
         spinnerCategoria.setOnItemSelectedListener(this);
 
-        adapterInventario = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
+        ArrayAdapter<CharSequence> adapterInventario = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
                 R.array.inventarios, android.R.layout.simple_spinner_item);
         adapterInventario.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerInventario.setAdapter(adapterInventario);
         spinnerInventario.setOnItemSelectedListener(this);
 
-        adapterSupermercado = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
+        ArrayAdapter<CharSequence> adapterSupermercado = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
                 R.array.supermercados, android.R.layout.simple_spinner_item);
         adapterSupermercado.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -163,7 +144,6 @@ public class NuevoTicket extends Fragment implements AdapterView.OnItemSelectedL
                     ticket.setPrecio(Double.parseDouble(nf.format(precioTotal)));
                     ticket.setIdSupermercado(spinnerSupermercado.getSelectedItemPosition() + 1);
                     mesDAO = new MesDAO(getContext().getApplicationContext());
-                    listaMes = mesDAO.getMesList();
                     String nombreMes = "";
                     switch (mesTicket) {
                         case 1:
@@ -244,9 +224,6 @@ public class NuevoTicket extends Fragment implements AdapterView.OnItemSelectedL
                 }
             }
         });
-
-        productoDAO = new ProductoDAO(getActivity().getApplicationContext());
-
 
         btnAnyadirProducto.setOnClickListener(new View.OnClickListener() {
             @Override

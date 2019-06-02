@@ -29,8 +29,13 @@ public class Inventarios extends Fragment {
                              Bundle savedInstanceState) {
 
         View vista = inflater.inflate(R.layout.fragment_inventario, container, false);
+
         getActivity().setTitle("Inventarios");
+
         Button btnNevera = vista.findViewById(R.id.buttonNevera);
+        Button btnCongelador = vista.findViewById(R.id.buttonCongelador);
+        Button btnDespensa = vista.findViewById(R.id.buttonDespensa);
+
         btnNevera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +45,6 @@ public class Inventarios extends Fragment {
             }
         });
 
-        Button btnCongelador = vista.findViewById(R.id.buttonCongelador);
         btnCongelador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +54,6 @@ public class Inventarios extends Fragment {
             }
         });
 
-        Button btnDespensa = vista.findViewById(R.id.buttonDespensa);
         btnDespensa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -14,9 +14,7 @@ import mycompra.app.R;
 
 public class AdapterTickets extends RecyclerView.Adapter<AdapterTickets.ViewHolderTickets> {
 
-    ArrayList<String> listSupermercadoTickets;
-    ArrayList<String> listFechaTickets;
-    ArrayList<String> listPrecioTickets;
+    private ArrayList<String> listSupermercadoTickets, listFechaTickets, listPrecioTickets;
 
     public AdapterTickets(ArrayList<String> listSupermercadoTickets, ArrayList<String> listFechaTickets, ArrayList<String> listPrecioTickets) {
         this.listSupermercadoTickets = listSupermercadoTickets;

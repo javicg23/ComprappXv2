@@ -32,11 +32,10 @@ import mycompra.app.modelo.Producto;
  */
 public class Productos extends Fragment {
 
-    ArrayList<String> listDatosProd;
-    ArrayList<String> listProduct;
-    ArrayList<String> listCatProd;
-    RecyclerView recyclerView;
-    Iterador<Producto> listaProductos;
+    private ArrayList<String> listDatosProd;
+    private ArrayList<String> listProduct;
+    private ArrayList<String> listCatProd;
+    private Iterador<Producto> listaProductos;
 
     public Productos() {
         // Required empty public constructor
@@ -49,7 +48,8 @@ public class Productos extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_productos, container, false);
 
-        recyclerView = view.findViewById(R.id.RecyclerIdProd);
+        RecyclerView recyclerView = view.findViewById(R.id.RecyclerIdProd);
+        FloatingActionButton buttonNuevosPoductos = view.findViewById(R.id.buttonNuevoProducto_prod);
 
         llenarListaProd();
 
@@ -82,7 +82,6 @@ public class Productos extends Fragment {
                 ((LinearLayoutManager) recyclerView.getLayoutManager()).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        FloatingActionButton buttonNuevosPoductos = view.findViewById(R.id.buttonNuevoProducto_prod);
         buttonNuevosPoductos.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
@@ -110,9 +109,9 @@ public class Productos extends Fragment {
 
         listaProductos = productoDAO.getProductoList();
 
-        listDatosProd = new ArrayList<String>();
-        listProduct = new ArrayList<String>();
-        listCatProd = new ArrayList<String>();
+        listDatosProd = new ArrayList<>();
+        listProduct = new ArrayList<>();
+        listCatProd = new ArrayList<>();
 
         while (listaProductos.hasNext()) {
             if (listaProductos.actual().getIdInventario() != 0) {

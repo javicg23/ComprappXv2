@@ -40,12 +40,13 @@ public class NuevoProductoLista extends Fragment {
         View view = inflater.inflate(R.layout.fragment_nuevo_producto_lista, container, false);
 
         editTextNombreProducto = view.findViewById(R.id.editTextNombreProductoAnyadirProductoListaHabitual);
+        Button btnAnyadir = view.findViewById(R.id.btnAnyadirNuevoProdLista);
+        Button btnAtras = view.findViewById(R.id.btnAtrasNuevoProdLista);
 
         productoDAO = new ProductoDAO(getActivity().getApplicationContext());
         productoListaDAO = new ProductoListaDAO(getActivity().getApplicationContext());
         idLista = getArguments().getString("idLista");
 
-        Button btnAnyadir = view.findViewById(R.id.btnAnyadirNuevoProdLista);
         btnAnyadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +66,6 @@ public class NuevoProductoLista extends Fragment {
             }
         });
 
-        Button btnAtras = view.findViewById(R.id.btnAtrasNuevoProdLista);
         btnAtras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

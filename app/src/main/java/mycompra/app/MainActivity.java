@@ -38,7 +38,6 @@ import mycompra.app.dao.SupermercadoDAO;
 import mycompra.app.dao.TagDAO;
 import mycompra.app.dao.TicketDAO;
 import mycompra.app.dbhelper.DBHelper;
-import mycompra.app.iterador.Iterador;
 import mycompra.app.modelo.AbstractMes;
 import mycompra.app.modelo.Categoria;
 import mycompra.app.modelo.Inventario;
@@ -54,8 +53,6 @@ import mycompra.app.modelo.Ticket;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private static DBHelper dBh;
-    private static Context ct;
 
     private static InventarioDAO inventarioDAO;
     private static CategoriaDAO categoriaDAO;
@@ -66,7 +63,6 @@ public class MainActivity extends AppCompatActivity
     private static TagDAO tagDAO;
     private static TicketDAO ticketDAO;
     private static ProductoTicketDAO productoTicketDAO;
-    private static ProductoListaDAO productoListaDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

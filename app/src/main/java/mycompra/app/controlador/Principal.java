@@ -31,6 +31,9 @@ public class Principal extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_principal, container, false);
 
         Button btnListasPrincipal = vista.findViewById(R.id.btnListPrincipalId);
+        Button btnEscanerPrincial = vista.findViewById(R.id.btnEscPrincId);
+        Button btnInventarioPrincipal = vista.findViewById(R.id.btnInventPrincId);
+
         btnListasPrincipal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +43,6 @@ public class Principal extends Fragment {
             }
         });
 
-        Button btnEscanerPrincial = vista.findViewById(R.id.btnEscPrincId);
         btnEscanerPrincial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +52,6 @@ public class Principal extends Fragment {
             }
         });
 
-        Button btnInventarioPrincipal = vista.findViewById(R.id.btnInventPrincId);
         btnInventarioPrincipal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

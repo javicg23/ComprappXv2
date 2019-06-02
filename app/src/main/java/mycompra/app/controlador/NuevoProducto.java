@@ -33,19 +33,9 @@ import mycompra.app.modelo.Producto;
 public class NuevoProducto extends Fragment implements AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
 
     private ProductoDAO productoDAO;
-    private String anteriorFragment;
-    private EditText editTextNombre;
-    private EditText editTextPrecio;
-    private EditText editTextCantidad;
-    private EditText editTextCaducidad;
-    private TextView textViewIdInventario;
-    private Spinner spinnerInventario;
-    private Spinner spinnerCategoria;
-    private ArrayAdapter<CharSequence> adapterInventario;
-    private ArrayAdapter<CharSequence> adapterCategoria;
-    private Button btnCancelar;
-    private Button btnAnyadir;
-    private String fecha;
+    private String anteriorFragment, fecha;
+    private EditText editTextNombre, editTextPrecio, editTextCantidad, editTextCaducidad;
+    private Spinner spinnerInventario, spinnerCategoria;
 
     public NuevoProducto() {
         // Required empty public constructor
@@ -63,16 +53,17 @@ public class NuevoProducto extends Fragment implements AdapterView.OnItemSelecte
         productoDAO = new ProductoDAO(getActivity().getApplicationContext());
 
         spinnerInventario = view.findViewById(R.id.spinnerInventarioNuevoProducto);
-        textViewIdInventario = view.findViewById(R.id.textViewIdInventario);
+        TextView textViewIdInventario = view.findViewById(R.id.textViewIdInventario);
         spinnerCategoria = view.findViewById(R.id.spinnerCategoriaNuevoProducto);
         editTextPrecio = view.findViewById(R.id.editTextPrecioNuevoProducto);
         editTextCantidad = view.findViewById(R.id.editTextCantidadNuevoProducto);
         editTextCaducidad = view.findViewById(R.id.editTextCaducidadNuevoProducto);
-        btnAnyadir = view.findViewById(R.id.btnAnyadirFragmentNuevoProducto);
+        Button btnAnyadir = view.findViewById(R.id.btnAnyadirFragmentNuevoProducto);
         editTextNombre = view.findViewById(R.id.editTextNombreNuevoProducto);
+        Button btnCancelar = view.findViewById(R.id.cancelarNuevoProducto);
 
         if (anteriorFragment.equalsIgnoreCase("productos")) {
-            adapterInventario = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
+            ArrayAdapter<CharSequence> adapterInventario = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
                     R.array.inventarios, android.R.layout.simple_spinner_item);
             adapterInventario.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -83,14 +74,13 @@ public class NuevoProducto extends Fragment implements AdapterView.OnItemSelecte
             textViewIdInventario.setVisibility(View.GONE);
         }
 
-        adapterCategoria = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
+        ArrayAdapter<CharSequence> adapterCategoria = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
                 R.array.categorias, android.R.layout.simple_spinner_item);
         adapterCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerCategoria.setAdapter(adapterCategoria);
         spinnerCategoria.setOnItemSelectedListener(this);
 
-        btnCancelar = view.findViewById(R.id.cancelarNuevoProducto);
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

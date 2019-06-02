@@ -14,9 +14,7 @@ import mycompra.app.R;
 
 public class AdapterDespensa extends RecyclerView.Adapter<AdapterDespensa.ViewHolderDespensa> {
 
-    ArrayList<String> listCantidadD;
-    ArrayList<String> listProdD;
-    ArrayList<String> listCaducidadD;
+    private ArrayList<String> listCantidadD, listProdD, listCaducidadD;
 
     public AdapterDespensa(ArrayList<String> listCantidadD, ArrayList<String> listProdD, ArrayList<String> listCaducidadD) {
         this.listCantidadD = listCantidadD;

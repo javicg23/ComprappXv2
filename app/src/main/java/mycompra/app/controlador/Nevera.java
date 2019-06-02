@@ -30,11 +30,10 @@ import mycompra.app.modelo.Producto;
  */
 public class Nevera extends Fragment {
 
-    ArrayList<String> listCantidad;
-    ArrayList<String> listProd;
-    ArrayList<String> listCaducidad;
-    RecyclerView recycler;
-    Iterador<Producto> listaProductos;
+    private ArrayList<String> listCantidad;
+    private ArrayList<String> listProd;
+    private ArrayList<String> listCaducidad;
+    private Iterador<Producto> listaProductos;
 
     public Nevera() {
         // Required empty public constructor
@@ -47,8 +46,10 @@ public class Nevera extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_nevera, container, false);
 
-        recycler = view.findViewById(R.id.RecyclerId);
         getActivity().setTitle("Nevera");
+
+        RecyclerView recycler = view.findViewById(R.id.RecyclerId);
+        FloatingActionButton buttonNuevoProdNevera = view.findViewById(R.id.buttonNuevoProdNevera);
 
         llenarLista();
 
@@ -81,7 +82,6 @@ public class Nevera extends Fragment {
                 ((LinearLayoutManager) recycler.getLayoutManager()).getOrientation());
         recycler.addItemDecoration(dividerItemDecoration);
 
-        FloatingActionButton buttonNuevoProdNevera = view.findViewById(R.id.buttonNuevoProdNevera);
         buttonNuevoProdNevera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,9 +105,9 @@ public class Nevera extends Fragment {
 
         listaProductos = productoDAO.getProductoListNevera();
 
-        listCantidad = new ArrayList<String>();
-        listProd = new ArrayList<String>();
-        listCaducidad = new ArrayList<String>();
+        listCantidad = new ArrayList<>();
+        listProd = new ArrayList<>();
+        listCaducidad = new ArrayList<>();
 
         while (listaProductos.hasNext()) {
             listCantidad.add(String.valueOf(listaProductos.actual().getCantidad()));

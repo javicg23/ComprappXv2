@@ -14,9 +14,7 @@ import mycompra.app.R;
 
 public class AdapterCongelador extends RecyclerView.Adapter<AdapterCongelador.ViewHolderCongelador> {
 
-    ArrayList<String> listCantidadC;
-    ArrayList<String> listProdC;
-    ArrayList<String> listCaducidadC;
+    private ArrayList<String> listCantidadC, listProdC, listCaducidadC;
 
     public AdapterCongelador(ArrayList<String> listCantidadC, ArrayList<String> listProdC, ArrayList<String> listCaducidadC) {
         this.listCantidadC = listCantidadC;

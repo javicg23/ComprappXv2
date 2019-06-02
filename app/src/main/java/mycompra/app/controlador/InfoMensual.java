@@ -31,20 +31,9 @@ import mycompra.app.modelo.Ticket;
  * A simple {@link Fragment} subclass.
  */
 public class InfoMensual extends Fragment {
-    private TextView textViewMesActual;
-    private TextView textViewMesAnterior;
-    private TextView textViewGastosActual;
-    private TextView textViewGastosAnterior;
     private EditText editTextPresupuestoActual;
-    private TextView textViewPresupuestoAnterior;
     private MesDAO mesDAO;
-    private TicketDAO ticketDAO;
-    private Iterador<Mes> listaMes;
-    private Iterador<Ticket> listaTicketsMes;
-    private Iterador<Ticket> listaTicketsMesAnterior;
-    private Mes mes;
-    private Mes mesAnterior;
-    private Button btnConfirmarInfoMensual;
+    private Mes mes, mesAnterior;
 
     public InfoMensual() {
         // Required empty public constructor
@@ -57,20 +46,20 @@ public class InfoMensual extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_info_mensual, container, false);
 
-        textViewMesActual = view.findViewById(R.id.textViewNombreMesInfoMensual);
-        textViewMesAnterior = view.findViewById(R.id.textViewMesAnteriorInfoMensual);
-        textViewGastosActual = view.findViewById(R.id.textViewGastosAcumuladosInfoMensual);
-        textViewGastosAnterior = view.findViewById(R.id.textViewGastosMesAnteriorInfoMensual);
-        editTextPresupuestoActual = view.findViewById(R.id.editTextPresupuestoInfoMensual);
-        textViewPresupuestoAnterior = view.findViewById(R.id.textViewPresupuestoMesAnteriorInfoMensual);
-        btnConfirmarInfoMensual = view.findViewById(R.id.btnConfirmarInfoMensual);
-
         getActivity().setTitle("Info Mensual");
 
-        mesDAO = new MesDAO(getActivity().getApplicationContext());
-        ticketDAO = new TicketDAO(getActivity().getApplicationContext());
+        TextView textViewMesActual = view.findViewById(R.id.textViewNombreMesInfoMensual);
+        TextView textViewMesAnterior = view.findViewById(R.id.textViewMesAnteriorInfoMensual);
+        TextView textViewGastosActual = view.findViewById(R.id.textViewGastosAcumuladosInfoMensual);
+        TextView textViewGastosAnterior = view.findViewById(R.id.textViewGastosMesAnteriorInfoMensual);
+        editTextPresupuestoActual = view.findViewById(R.id.editTextPresupuestoInfoMensual);
+        TextView textViewPresupuestoAnterior = view.findViewById(R.id.textViewPresupuestoMesAnteriorInfoMensual);
+        Button btnConfirmarInfoMensual = view.findViewById(R.id.btnConfirmarInfoMensual);
 
-        listaMes = mesDAO.getMesList();
+        mesDAO = new MesDAO(getActivity().getApplicationContext());
+        TicketDAO ticketDAO = new TicketDAO(getActivity().getApplicationContext());
+
+        Iterador<Mes> listaMes = mesDAO.getMesList();
 
         Date date = Calendar.getInstance().getTime();
         SimpleDateFormat mdformat = new SimpleDateFormat("dd/MM/YYYY");
@@ -130,8 +119,8 @@ public class InfoMensual extends Fragment {
             listaMes.avanza();
         }
 
-        listaTicketsMes = ticketDAO.getTicketListByMes(mes.getId());
-        listaTicketsMesAnterior = ticketDAO.getTicketListByMes(mesAnterior.getId());
+        Iterador<Ticket> listaTicketsMes = ticketDAO.getTicketListByMes(mes.getId());
+        Iterador<Ticket> listaTicketsMesAnterior = ticketDAO.getTicketListByMes(mesAnterior.getId());
 
         textViewMesActual.setText(mes.getNombre());
         textViewMesAnterior.setText(mesAnterior.getNombre());

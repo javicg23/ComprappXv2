@@ -28,12 +28,9 @@ import mycompra.app.modelo.ProductoLista;
  * A simple {@link Fragment} subclass.
  */
 public class NuevaLista extends Fragment {
-    private Button btnAnyadirLista;
-    private Button btnAnyadirProductoALista;
-    private Button btnAtras;
     private EditText editTextNombreLista;
     private EditText editTextNombreProducto;
-    private Agregado<Producto> agregaProd = new AgregadoConcreto<Producto>();
+    private Agregado<Producto> agregaProd = new AgregadoConcreto<>();
 
     public NuevaLista() {
         // Required empty public constructor
@@ -48,8 +45,10 @@ public class NuevaLista extends Fragment {
 
         editTextNombreLista = view.findViewById(R.id.editTextNombreListaNueva);
         editTextNombreProducto = view.findViewById(R.id.editTextNombreProductoListaNueva);
+        Button btnAnyadirLista = view.findViewById(R.id.btnAnyadirListaNuevaLista);
+        Button btnAtras = view.findViewById(R.id.btnAtrasNuevaLista);
+        Button btnAnyadirProductoALista = view.findViewById(R.id.btnAnyadirProductoALista);
 
-        btnAnyadirLista = view.findViewById(R.id.btnAnyadirListaNuevaLista);
         btnAnyadirLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +85,6 @@ public class NuevaLista extends Fragment {
             }
         });
 
-        btnAtras = view.findViewById(R.id.btnAtrasNuevaLista);
         btnAtras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,9 +93,6 @@ public class NuevaLista extends Fragment {
                 ft.commit();
             }
         });
-
-        btnAnyadirProductoALista = view.findViewById(R.id.btnAnyadirProductoALista);
-
 
         btnAnyadirProductoALista.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,9 +14,7 @@ import mycompra.app.R;
 
 public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.ViewHolderProductos> {
 
-    ArrayList<String> listDatosProd;
-    ArrayList<String> listProduct;
-    ArrayList<String> listCatProd;
+    private ArrayList<String> listDatosProd, listProduct, listCatProd;
 
     public AdapterProductos(ArrayList<String> listDatosProd, ArrayList<String> listProduct, ArrayList<String> listCatProd) {
         this.listDatosProd = listDatosProd;

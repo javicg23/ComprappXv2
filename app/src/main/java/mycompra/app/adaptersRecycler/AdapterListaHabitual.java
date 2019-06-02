@@ -14,7 +14,7 @@ import mycompra.app.R;
 
 public class AdapterListaHabitual extends RecyclerView.Adapter<AdapterListaHabitual.ViewHolderListaHabitual> {
 
-    ArrayList<String> listCheckBox;
+    private ArrayList<String> listCheckBox;
 
     public AdapterListaHabitual(ArrayList<String> listCheckBox) {
         this.listCheckBox = listCheckBox;

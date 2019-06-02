@@ -32,11 +32,8 @@ import mycompra.app.modelo.Producto;
  */
 public class ListaHabitual extends Fragment {
 
-    RecyclerView recycler;
-    ArrayList<String> listCheckBox;
+    private ArrayList<String> listCheckBox;
     private String idLista;
-    private TextView textViewNombreListaHabitual;
-    private ImageButton imageButtonEscaner;
     private Lista lista;
     private ListaDAO listaDAO;
 
@@ -53,9 +50,12 @@ public class ListaHabitual extends Fragment {
 
         idLista = getArguments().getString("idLista");
 
-        textViewNombreListaHabitual = view.findViewById(R.id.textViewNombreListaHabitual);
-        imageButtonEscaner = view.findViewById(R.id.imageButtonEscaner);
-        recycler = view.findViewById(R.id.RecyclerListaHabitualId);
+        TextView textViewNombreListaHabitual = view.findViewById(R.id.textViewNombreListaHabitual);
+        ImageButton imageButtonEscaner = view.findViewById(R.id.imageButtonEscaner);
+        RecyclerView recycler = view.findViewById(R.id.RecyclerListaHabitualId);
+        FloatingActionButton eliminarProd = view.findViewById(R.id.btnBorrarListaHabitual);
+        FloatingActionButton nuevoProdLista = view.findViewById(R.id.btnAnyadirProductoAListaHabitual);
+
         listaDAO = new ListaDAO(getActivity().getApplicationContext());
         lista = listaDAO.getListaById(Integer.parseInt(idLista));
 
@@ -76,7 +76,6 @@ public class ListaHabitual extends Fragment {
                 ((LinearLayoutManager) recycler.getLayoutManager()).getOrientation());
         recycler.addItemDecoration(dividerItemDecoration);
 
-        FloatingActionButton eliminarProd = view.findViewById(R.id.btnBorrarListaHabitual);
         eliminarProd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +93,6 @@ public class ListaHabitual extends Fragment {
             }
         });
 
-        FloatingActionButton nuevoProdLista = view.findViewById(R.id.btnAnyadirProductoAListaHabitual);
         nuevoProdLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,7 +116,7 @@ public class ListaHabitual extends Fragment {
         ProductoListaDAO productoListaDAO = new ProductoListaDAO(getActivity().getApplicationContext());
         Iterador<Producto> listaProductos = productoListaDAO.getProductoListFromListaHabitual(lista.getId());
 
-        listCheckBox = new ArrayList<String>();
+        listCheckBox = new ArrayList<>();
 
         while (listaProductos.hasNext()) {
             listCheckBox.add(listaProductos.next().getNombre());

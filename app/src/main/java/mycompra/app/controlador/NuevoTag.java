@@ -26,10 +26,7 @@ public class NuevoTag extends Fragment implements AdapterView.OnItemSelectedList
 
     private EditText editTextTag;
     private Spinner spinner;
-    private Button btnAtras;
-    private Button btnAnyadir;
     private TagDAO tagDAO;
-    private ArrayAdapter<CharSequence> adapter;
 
     public NuevoTag() {
         // Required empty public constructor
@@ -43,17 +40,18 @@ public class NuevoTag extends Fragment implements AdapterView.OnItemSelectedList
         View view = inflater.inflate(R.layout.fragment_nuevo_tag, container, false);
 
         editTextTag = view.findViewById(R.id.editTextNuevoTag);
-
         spinner = view.findViewById(R.id.spinnerNuevoTag);
+        Button btnAtras = view.findViewById(R.id.btnCancelarNuevoTag);
+        Button btnAnyadir = view.findViewById(R.id.btnAnyadirNuevoTag);
 
-        adapter = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
                 R.array.categorias, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        btnAtras = view.findViewById(R.id.btnCancelarNuevoTag);
+
         btnAtras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +61,6 @@ public class NuevoTag extends Fragment implements AdapterView.OnItemSelectedList
             }
         });
 
-        btnAnyadir = view.findViewById(R.id.btnAnyadirNuevoTag);
         btnAnyadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

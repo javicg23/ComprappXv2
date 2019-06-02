@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * Clase que sirve para que se pueda hacer click en un item del recyclerview
  */
 public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
-    GestureDetector mGestureDetector;
+    private GestureDetector mGestureDetector;
     private OnItemClickListener mListener;
 
     public RecyclerItemClickListener(Context context, OnItemClickListener listener) {

@@ -32,22 +32,10 @@ import mycompra.app.modelo.Producto;
 public class DetalleProdInventario extends Fragment implements AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
 
     private Producto producto;
-    private String idProducto;
     private String anteriorFragment;
     private ProductoDAO productoDAO;
-    private EditText editTextNombre;
-    private EditText editTextPrecio;
-    private EditText editTextCantidad;
-    private EditText editTextCaducidad;
-    private Spinner spinnerInventario;
-    private Spinner spinnerCategoria;
-    private TextView textViewNombre;
-    private Button btnBorrar;
-    private Button btnActualizar;
-    private ArrayAdapter<CharSequence> adapterInventario;
-    private ArrayAdapter<CharSequence> adapterCategoria;
-    private View view;
-    private String fecha;
+    private EditText editTextNombre, editTextPrecio, editTextCantidad, editTextCaducidad;
+    private Spinner spinnerInventario, spinnerCategoria;
 
     public DetalleProdInventario() {
         // Required empty public constructor
@@ -58,27 +46,29 @@ public class DetalleProdInventario extends Fragment implements AdapterView.OnIte
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_detalle_prod_inventario, container, false);
+        View view = inflater.inflate(R.layout.fragment_detalle_prod_inventario, container, false);
 
         editTextNombre = view.findViewById(R.id.editTextNombreDetalle);
         editTextPrecio = view.findViewById(R.id.editTextPrecioDetalle);
         editTextCantidad = view.findViewById(R.id.textViewCantidadDetalle);
         editTextCaducidad = view.findViewById(R.id.editTextCaducidadDetalle);
-        textViewNombre = view.findViewById(R.id.textNombreProductoFragmentDetalle);
+        TextView textViewNombre = view.findViewById(R.id.textNombreProductoFragmentDetalle);
         spinnerInventario = view.findViewById(R.id.spinnerInventarioDetalle);
         spinnerCategoria = view.findViewById(R.id.spinnerCategoriaDetalle);
+        Button btnBorrar = view.findViewById(R.id.btnBorrarDetalle);
+        Button btnActualizar = view.findViewById(R.id.btnActualizarDetalle);
 
-        idProducto = getArguments().getString("idProducto");
+        String idProducto = getArguments().getString("idProducto");
         anteriorFragment = getArguments().getString("fragmentAnterior");
 
-        adapterInventario = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
+        ArrayAdapter<CharSequence> adapterInventario = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
                 R.array.inventarios, android.R.layout.simple_spinner_item);
         adapterInventario.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerInventario.setAdapter(adapterInventario);
         spinnerInventario.setOnItemSelectedListener(this);
 
-        adapterCategoria = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
+        ArrayAdapter<CharSequence> adapterCategoria = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
                 R.array.categorias, android.R.layout.simple_spinner_item);
         adapterCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -104,7 +94,6 @@ public class DetalleProdInventario extends Fragment implements AdapterView.OnIte
         spinnerCategoria.setSelection(producto.getIdCategoria() - 1);
         spinnerInventario.setSelection(producto.getIdInventario() - 1);
 
-        btnBorrar = view.findViewById(R.id.btnBorrarDetalle);
         btnBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +102,6 @@ public class DetalleProdInventario extends Fragment implements AdapterView.OnIte
             }
         });
 
-        btnActualizar = view.findViewById(R.id.btnActualizarDetalle);
         btnActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -177,7 +165,7 @@ public class DetalleProdInventario extends Fragment implements AdapterView.OnIte
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        fecha = dayOfMonth + "/" + (month + 1) + "/" + year;
+        String fecha = dayOfMonth + "/" + (month + 1) + "/" + year;
         editTextCaducidad.setText(fecha);
     }
 }

@@ -14,7 +14,7 @@ import mycompra.app.R;
 
 public class AdapterListas extends RecyclerView.Adapter<AdapterListas.ViewHolderListas> {
 
-    ArrayList<String> nombreListas;
+    private ArrayList<String> nombreListas;
 
     public AdapterListas(ArrayList<String> nombreListas) {
         this.nombreListas = nombreListas;

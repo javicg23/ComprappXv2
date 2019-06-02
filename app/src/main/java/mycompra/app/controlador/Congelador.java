@@ -30,11 +30,8 @@ import mycompra.app.modelo.Producto;
  */
 public class Congelador extends Fragment {
 
-    ArrayList<String> listCantidadC;
-    ArrayList<String> listProdC;
-    ArrayList<String> listCaducidadC;
-    RecyclerView recycler;
-    Iterador<Producto> listaProductos;
+    private ArrayList<String> listCantidadC, listProdC, listCaducidadC;
+    private Iterador<Producto> listaProductos;
 
     public Congelador() {
         // Required empty public constructor
@@ -47,8 +44,10 @@ public class Congelador extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_congelador, container, false);
 
-        recycler = view.findViewById(R.id.RecyclerId);
         getActivity().setTitle("Congelador");
+
+        RecyclerView recycler = view.findViewById(R.id.RecyclerId);
+        FloatingActionButton buttonNuevoProdNevera = view.findViewById(R.id.buttonNuevoProdCongelador);
 
         llenarLista();
 
@@ -81,7 +80,7 @@ public class Congelador extends Fragment {
                 ((LinearLayoutManager) recycler.getLayoutManager()).getOrientation());
         recycler.addItemDecoration(dividerItemDecoration);
 
-        FloatingActionButton buttonNuevoProdNevera = view.findViewById(R.id.buttonNuevoProdCongelador);
+
         buttonNuevoProdNevera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,9 +104,9 @@ public class Congelador extends Fragment {
 
         listaProductos = productoDAO.getProductoListCongelador();
 
-        listCantidadC = new ArrayList<String>();
-        listProdC = new ArrayList<String>();
-        listCaducidadC = new ArrayList<String>();
+        listCantidadC = new ArrayList<>();
+        listProdC = new ArrayList<>();
+        listCaducidadC = new ArrayList<>();
 
         while (listaProductos.hasNext()) {
             listCantidadC.add(String.valueOf(listaProductos.actual().getCantidad()));

@@ -14,9 +14,7 @@ import mycompra.app.R;
 
 public class AdapterNevera extends RecyclerView.Adapter<AdapterNevera.ViewHolderNevera> {
 
-    ArrayList<String> listCantidad;
-    ArrayList<String> listProd;
-    ArrayList<String> listCaducidad;
+    private ArrayList<String> listCantidad, listProd, listCaducidad;
 
     public AdapterNevera(ArrayList<String> listCantidad, ArrayList<String> listProd, ArrayList<String> listCaducidad) {
         this.listCantidad = listCantidad;

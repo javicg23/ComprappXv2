@@ -38,16 +38,9 @@ import mycompra.app.modelo.Ticket;
  */
 public class TicketsDelMes extends Fragment {
 
-    ArrayList<String> listSupermercados;
-    ArrayList<String> listFechas;
-    ArrayList<String> listPrecios;
-    RecyclerView recyclerView;
-    private MesDAO mesDAO;
+    private ArrayList<String> listSupermercados, listFechas, listPrecios;
     private TicketDAO ticketDAO;
-    private SupermercadoDAO supermercadoDAO;
-    private Iterador<Mes> listaMes;
     private Iterador<Ticket> listaTicketsMes;
-    private Iterador<Supermercado> listaSupermercados;
     private Mes mes;
 
     public TicketsDelMes() {
@@ -62,7 +55,9 @@ public class TicketsDelMes extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tickets, container, false);
 
         getActivity().setTitle("Tickets del mes");
-        recyclerView = view.findViewById(R.id.RecyclerTickets);
+
+        RecyclerView recyclerView = view.findViewById(R.id.RecyclerTickets);
+        FloatingActionButton btnAnyadirTicket = view.findViewById(R.id.btnAnyadirTicket);
 
         llenarListaTickets();
 
@@ -102,7 +97,6 @@ public class TicketsDelMes extends Fragment {
                 ((LinearLayoutManager) recyclerView.getLayoutManager()).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        FloatingActionButton btnAnyadirTicket = view.findViewById(R.id.btnAnyadirTicket);
         btnAnyadirTicket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,11 +111,11 @@ public class TicketsDelMes extends Fragment {
 
     private void llenarListaTickets() {
         ticketDAO = new TicketDAO(getActivity().getApplicationContext());
-        supermercadoDAO = new SupermercadoDAO(getActivity().getApplicationContext());
-        mesDAO = new MesDAO(getActivity().getApplicationContext());
+        SupermercadoDAO supermercadoDAO = new SupermercadoDAO(getActivity().getApplicationContext());
+        MesDAO mesDAO = new MesDAO(getActivity().getApplicationContext());
 
-        listaMes = mesDAO.getMesList();
-        listaSupermercados = supermercadoDAO.getSupermercadoList();
+        Iterador<Mes> listaMes = mesDAO.getMesList();
+        Iterador<Supermercado> listaSupermercados = supermercadoDAO.getSupermercadoList();
 
         Date date = Calendar.getInstance().getTime();
         SimpleDateFormat mdformat = new SimpleDateFormat("dd/MM/YYYY");
@@ -182,9 +176,9 @@ public class TicketsDelMes extends Fragment {
 
         listaTicketsMes = ticketDAO.getTicketListByMes(mes.getId());
 
-        listSupermercados = new ArrayList<String>();
-        listFechas = new ArrayList<String>();
-        listPrecios = new ArrayList<String>();
+        listSupermercados = new ArrayList<>();
+        listFechas = new ArrayList<>();
+        listPrecios = new ArrayList<>();
 
         while (listaTicketsMes.hasNext()) {
             listPrecios.add(String.valueOf(listaTicketsMes.actual().getPrecio()));

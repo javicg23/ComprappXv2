@@ -30,9 +30,8 @@ import mycompra.app.modelo.Lista;
  */
 public class Listas extends Fragment {
 
-    ArrayList<String> nombreListas;
-    RecyclerView recyclerListas;
-    Iterador<Lista> listaListas;
+    private ArrayList<String> nombreListas;
+    private Iterador<Lista> listaListas;
 
     public Listas() {
         // Required empty public constructor
@@ -45,9 +44,10 @@ public class Listas extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_listas, container, false);
 
-        recyclerListas = view.findViewById(R.id.RecyclerIdListas);
-
         getActivity().setTitle("Listas");
+
+        RecyclerView recyclerListas = view.findViewById(R.id.RecyclerIdListas);
+        FloatingActionButton btnNuevaLista = view.findViewById(R.id.btnNuevaLista);
 
         llenarListas();
 
@@ -79,7 +79,6 @@ public class Listas extends Fragment {
                 ((LinearLayoutManager) recyclerListas.getLayoutManager()).getOrientation());
         recyclerListas.addItemDecoration(dividerItemDecoration);
 
-        FloatingActionButton btnNuevaLista = view.findViewById(R.id.btnNuevaLista);
         btnNuevaLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +98,7 @@ public class Listas extends Fragment {
     }
 
     private void llenarListas() {
-        nombreListas = new ArrayList<String>();
+        nombreListas = new ArrayList<>();
 
         ListaDAO listaDAO = new ListaDAO(getActivity().getApplicationContext());
 
