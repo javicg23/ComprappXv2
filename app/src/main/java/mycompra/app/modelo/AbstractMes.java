@@ -6,4 +6,5 @@ public abstract class AbstractMes {
 
     public abstract boolean isNil();
     public abstract String getNombre();
+    public abstract int getId();
 }

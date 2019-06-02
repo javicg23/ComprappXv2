@@ -29,7 +29,9 @@ import mycompra.app.dao.TicketDAO;
 import mycompra.app.iterador.Agregado;
 import mycompra.app.iterador.AgregadoConcreto;
 import mycompra.app.iterador.Iterador;
+import mycompra.app.modelo.AbstractMes;
 import mycompra.app.modelo.Mes;
+import mycompra.app.modelo.MesFactory;
 import mycompra.app.modelo.Producto;
 import mycompra.app.modelo.ProductoTicket;
 import mycompra.app.modelo.Ticket;
@@ -201,21 +203,19 @@ public class NuevoTicket extends Fragment implements AdapterView.OnItemSelectedL
                             nombreMes = "diciembre";
                             break;
                     }
-                    while (listaMes.hasNext()) {
-                        if (anyoTicket == listaMes.actual().getAnyo() && listaMes.actual().getNombre().equalsIgnoreCase(nombreMes)) {
-                            mes = listaMes.actual();
-                            idMes = mes.getId();
-                            break;
-                        }
-                        listaMes.avanza();
-                    }
-                    if (mes == null) {
+
+                    AbstractMes abstractMes = MesFactory.getMes(getContext().getApplicationContext(), nombreMes, anyoTicket);
+
+                    if (abstractMes.isNil()) {
                         Mes mes = new Mes();
                         mes.setPresupuesto(0);
                         mes.setNombre(nombreMes);
                         mes.setAnyo(anyoTicket);
                         idMes = mesDAO.insert(mes);
+                    } else {
+                        idMes = abstractMes.getId();
                     }
+
                     ticket.setIdMes(idMes);
                     int idTicket = ticketDAO.insert(ticket);
 
@@ -231,6 +231,7 @@ public class NuevoTicket extends Fragment implements AdapterView.OnItemSelectedL
                         productoTicketDAO.insert(productoTicket);
                         iteraProd.avanza();
                     }
+                    Toast.makeText(getActivity().getApplicationContext(), "Ticket agregado correctamente", Toast.LENGTH_SHORT).show();
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.frame, new TicketsDelMes()).addToBackStack(null);
                     ft.commit();

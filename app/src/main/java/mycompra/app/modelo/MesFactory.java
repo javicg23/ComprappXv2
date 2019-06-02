@@ -16,7 +16,7 @@ public class MesFactory {
 
         while (listaMes.hasNext()) {
             if (anyo == listaMes.actual().getAnyo() && listaMes.actual().getNombre().equalsIgnoreCase(nombre)) {
-                return new Mes(nombre, anyo, listaMes.actual().getPresupuesto());
+                return listaMes.actual();
             }
             listaMes.avanza();
         }

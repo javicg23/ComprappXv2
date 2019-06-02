@@ -11,4 +11,9 @@ public class NullMes extends AbstractMes {
     public String getNombre() {
         return "nulo";
     }
+
+    @Override
+    public int getId() {
+        return 0;
+    }
 }

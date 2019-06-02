@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import mycompra.app.MainActivity;
 import mycompra.app.R;
 import mycompra.app.dao.MesDAO;
 import mycompra.app.dao.TicketDAO;
@@ -159,6 +161,9 @@ public class InfoMensual extends Fragment {
                 mes.setPresupuesto(Double.parseDouble(editTextPresupuestoActual.getText().toString()));
                 mesDAO.update(mes);
                 Toast.makeText(getActivity().getApplicationContext(), "Presupuesto guardado", Toast.LENGTH_SHORT).show();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.frame, new Principal()).addToBackStack(null);
+                ft.commit();
             }
         });
         return view;

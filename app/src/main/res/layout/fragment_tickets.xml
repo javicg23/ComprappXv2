@@ -16,9 +16,9 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TICKETS"
+            android:text="TICKETS\nMES ACTUAL"
             android:textAlignment="center"
-            android:textSize="50sp" />
+            android:textSize="40sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
