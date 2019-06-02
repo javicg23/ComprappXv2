@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".controlador.NuevoProductoLista">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/fab_margin">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Añadir producto\n a lista actual"
+            android:textSize="40sp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/fab_margin"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/editTextNombreProductoAnyadirProductoListaHabitual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:ems="10"
+                android:textSize="20sp"
+                android:inputType="textPersonName"
+                android:hint="Nombre Producto" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:padding="@dimen/fab_margin">
+
+            <Button
+                android:id="@+id/btnAtrasNuevoProdLista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Atras"
+                android:layout_marginRight="25dp"/>
+
+            <Button
+                android:id="@+id/btnAnyadirNuevoProdLista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Añadir"
+                android:layout_marginLeft="25dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

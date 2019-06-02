@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controlador.DetalleProdInventario">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/textNombreProductoFragmentDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre producto"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:padding="@dimen/fab_margin"
+        android:layout_marginBottom="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textNombreDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre:"
+            android:paddingEnd="40sp"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/editTextNombreDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textPrecioInv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio:"
+            android:paddingEnd="50sp"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/editTextPrecioDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="2.44"
+            android:ems="5"
+            android:maxLength="7"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad:"
+            android:paddingEnd="30sp"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/textViewCantidadDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="5"
+            android:hint="1"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Caducidad:"
+            android:paddingEnd="20sp"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/editTextCaducidadDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:hint="20/04/2019"
+            android:clickable="true"
+            android:focusable="false"
+            android:ems="5"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textViewIdCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria:"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/spinnerCategoriaDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="25sp"
+            android:paddingEnd="10sp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inventario:"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/spinnerInventarioDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="25sp"
+            android:paddingEnd="10sp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btnBorrarDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Borrar"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"/>
+
+        <Button
+            android:id="@+id/btnActualizarDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Actualizar"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin" />
+    </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_inventario"
+                    android:icon="@drawable/ic_baseline_kitchen_24px"
+                    android:title="@string/Inventario" />
+                <item
+                    android:id="@+id/nav_productos"
+                    android:icon="@drawable/ic_baseline_shopping_cart_24px"
+                    android:title="@string/Productos" />
+                <item
+                    android:id="@+id/nav_listas"
+                    android:icon="@drawable/ic_baseline_list_24px"
+                    android:title="@string/Listas" />
+                <item
+                    android:id="@+id/nav_tickets"
+                    android:icon="@drawable/ic_baseline_film_24px"
+                    android:title="Tickets" />
+                <item
+                    android:id="@+id/nav_infoMensual"
+                    android:icon="@drawable/ic_baseline_calendar_today_24px"
+                    android:title="Info mensual" />
+                <item
+                    android:id="@+id/nav_escanear"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="@string/Escanear" />
+                <item
+                    android:id="@+id/nav_configuracion"
+                    android:icon="@drawable/ic_baseline_settings_20px"
+                    android:title="Configuración" />
+                <item
+                    android:id="@+id/nav_Home"
+                    android:icon="@drawable/ic_baseline_home_24px"
+                    android:title="@string/Pantalla_Principal" />
+    </group>
+</menu>
+

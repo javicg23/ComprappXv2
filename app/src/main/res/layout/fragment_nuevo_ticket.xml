@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controlador.NuevoTicket">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/fab_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NUEVO TICKET"
+            android:textAlignment="center"
+            android:textSize="40sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewNombreNuevoProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextNombreNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30sp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Nombre Producto" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewPrecioNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextPrecioNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45sp"
+                android:ems="10"
+                android:maxLength="7"
+                android:inputType="numberDecimal"
+                android:hint="2.30" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewCantidadNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cantidad:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextCantidadNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25sp"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Caducidad:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextCaducidadNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fab_margin"
+                android:ems="10"
+                android:inputType="date"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="Selecciona fecha" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/textViewIdCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categoria:"
+                android:textSize="20sp"/>
+
+            <Spinner
+                android:id="@+id/spinnerCategoriaNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="25sp"
+                android:paddingEnd="10sp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/textViewIdInventario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inventario:"
+                android:textSize="20sp"/>
+
+            <Spinner
+                android:id="@+id/spinnerInventarioNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="25sp"
+                android:paddingEnd="10sp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+            <Button
+                android:id="@+id/btnAnyadirProductoATicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Añadir Producto a ticket " />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Supermer.: "
+                android:textSize="20sp"/>
+
+            <Spinner
+                android:id="@+id/spinnerSupermercadoNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="25sp"
+                android:paddingEnd="10sp"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha:"
+                android:textSize="20sp"
+                android:paddingBottom="@dimen/fab_margin"/>
+
+            <EditText
+                android:id="@+id/editTextFechaNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45sp"
+                android:ems="10"
+                android:inputType="date"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="Selecciona fecha" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAtrasNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:text="Atras" />
+
+            <Button
+                android:id="@+id/btnConfirmarNuevoTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_weight="1"
+                android:text="Confirmar Ticket" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
