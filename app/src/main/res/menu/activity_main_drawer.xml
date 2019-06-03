@@ -25,10 +25,6 @@
                     android:icon="@drawable/ic_baseline_calendar_today_24px"
                     android:title="Info mensual" />
                 <item
-                    android:id="@+id/nav_escanear"
-                    android:icon="@drawable/ic_menu_camera"
-                    android:title="@string/Escanear" />
-                <item
                     android:id="@+id/nav_configuracion"
                     android:icon="@drawable/ic_baseline_settings_20px"
                     android:title="Configuración" />

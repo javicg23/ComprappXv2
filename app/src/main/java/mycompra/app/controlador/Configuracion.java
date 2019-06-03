@@ -36,7 +36,7 @@ public class Configuracion extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, new NuevoTag()).addToBackStack(null);
+                ft.replace(R.id.frame, new NuevoTag());
                 ft.commit();
             }
         });

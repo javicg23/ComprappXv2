@@ -119,7 +119,7 @@ public class NuevoTicket extends Fragment implements AdapterView.OnItemSelectedL
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, new TicketsDelMes()).addToBackStack(null);
+                ft.replace(R.id.frame, new TicketsDelMes());
                 ft.commit();
             }
         });
@@ -213,7 +213,7 @@ public class NuevoTicket extends Fragment implements AdapterView.OnItemSelectedL
                     }
                     Toast.makeText(getActivity().getApplicationContext(), "Ticket agregado correctamente", Toast.LENGTH_SHORT).show();
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.frame, new TicketsDelMes()).addToBackStack(null);
+                    ft.replace(R.id.frame, new TicketsDelMes());
                     ft.commit();
                 } else {
                     if (!iteraProd.hasNext()) {

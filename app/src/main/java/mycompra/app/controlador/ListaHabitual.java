@@ -51,7 +51,6 @@ public class ListaHabitual extends Fragment {
         idLista = getArguments().getString("idLista");
 
         TextView textViewNombreListaHabitual = view.findViewById(R.id.textViewNombreListaHabitual);
-        ImageButton imageButtonEscaner = view.findViewById(R.id.imageButtonEscaner);
         RecyclerView recycler = view.findViewById(R.id.RecyclerListaHabitualId);
         FloatingActionButton eliminarProd = view.findViewById(R.id.btnBorrarListaHabitual);
         FloatingActionButton nuevoProdLista = view.findViewById(R.id.btnAnyadirProductoAListaHabitual);
@@ -86,13 +85,6 @@ public class ListaHabitual extends Fragment {
             }
         });
 
-        imageButtonEscaner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         nuevoProdLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,7 +96,7 @@ public class ListaHabitual extends Fragment {
                 nuevoProductoLista.setArguments(bundle);
 
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame, nuevoProductoLista).addToBackStack(null);
+                fr.replace(R.id.frame, nuevoProductoLista);
                 fr.commit();
             }
         });

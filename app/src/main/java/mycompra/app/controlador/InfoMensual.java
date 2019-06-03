@@ -151,7 +151,7 @@ public class InfoMensual extends Fragment {
                 mesDAO.update(mes);
                 Toast.makeText(getActivity().getApplicationContext(), "Presupuesto guardado", Toast.LENGTH_SHORT).show();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, new Principal()).addToBackStack(null);
+                ft.replace(R.id.frame, new Principal());
                 ft.commit();
             }
         });

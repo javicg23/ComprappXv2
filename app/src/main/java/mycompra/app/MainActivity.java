@@ -1,6 +1,5 @@
 package mycompra.app;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -20,7 +19,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import mycompra.app.controlador.Configuracion;
-import mycompra.app.controlador.Escanear;
 import mycompra.app.controlador.InfoMensual;
 import mycompra.app.controlador.Inventarios;
 import mycompra.app.controlador.Listas;
@@ -157,12 +155,6 @@ public class MainActivity extends AppCompatActivity
             InfoMensual fragment = new InfoMensual();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame, fragment, "InfoMensual");
-            fragmentTransaction.commit();
-        } else if (id == R.id.nav_escanear) {
-            setTitle("Escanear");
-            Escanear fragment = new Escanear();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.frame, fragment, "Escanear");
             fragmentTransaction.commit();
         } else if (id == R.id.nav_Home) {
             setTitle("Principal");

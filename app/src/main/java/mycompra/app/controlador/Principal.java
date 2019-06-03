@@ -38,7 +38,7 @@ public class Principal extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, new Listas()).addToBackStack(null);
+                ft.replace(R.id.frame, new Listas());
                 ft.commit();
             }
         });
@@ -47,7 +47,7 @@ public class Principal extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, new Escanear()).addToBackStack(null);
+                ft.replace(R.id.frame, new TicketsDelMes());
                 ft.commit();
             }
         });
@@ -56,7 +56,7 @@ public class Principal extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, new Inventarios()).addToBackStack(null);
+                ft.replace(R.id.frame, new Inventarios());
                 ft.commit();
             }
         });

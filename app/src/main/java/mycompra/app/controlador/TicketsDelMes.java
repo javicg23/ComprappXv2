@@ -79,7 +79,7 @@ public class TicketsDelMes extends Fragment {
                             public void onClick(DialogInterface dialog, int which) {
                                 ticketDAO.delete(listaTicketsMes.get(position).getId());
                                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                ft.replace(R.id.frame, new TicketsDelMes()).addToBackStack(null);
+                                ft.replace(R.id.frame, new TicketsDelMes());
                                 ft.commit();
                             }
                         })
@@ -101,7 +101,7 @@ public class TicketsDelMes extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, new NuevoTicket()).addToBackStack(null);
+                ft.replace(R.id.frame, new NuevoTicket());
                 ft.commit();
             }
         });

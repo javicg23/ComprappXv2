@@ -69,7 +69,7 @@ public class Congelador extends Fragment {
                 detalleProdInventario.setArguments(bundle);
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, detalleProdInventario).addToBackStack(null);
+                ft.replace(R.id.frame, detalleProdInventario);
                 ft.commit();
             }
         }));
@@ -92,7 +92,7 @@ public class Congelador extends Fragment {
                 nuevoProducto.setArguments(bundle);
 
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame, nuevoProducto).addToBackStack(null);
+                fr.replace(R.id.frame, nuevoProducto);
                 fr.commit();
             }
         });

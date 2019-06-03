@@ -142,16 +142,16 @@ public class DetalleProdInventario extends Fragment implements AdapterView.OnIte
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         switch (anteriorFragment.toLowerCase()) {
             case "nevera":
-                ft.replace(R.id.frame, new Nevera()).addToBackStack(null);
+                ft.replace(R.id.frame, new Nevera());
                 break;
             case "congelador":
-                ft.replace(R.id.frame, new Congelador()).addToBackStack(null);
+                ft.replace(R.id.frame, new Congelador());
                 break;
             case "despensa":
-                ft.replace(R.id.frame, new Despensa()).addToBackStack(null);
+                ft.replace(R.id.frame, new Despensa());
                 break;
             case "productos":
-                ft.replace(R.id.frame, new Productos()).addToBackStack(null);
+                ft.replace(R.id.frame, new Productos());
                 break;
         }
         ft.commit();

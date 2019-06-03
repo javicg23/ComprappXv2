@@ -68,7 +68,7 @@ public class Listas extends Fragment {
                 listaHabitual.setArguments(bundle);
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, listaHabitual).addToBackStack(null);
+                ft.replace(R.id.frame, listaHabitual);
                 ft.commit();
             }
         }));
@@ -90,7 +90,7 @@ public class Listas extends Fragment {
                 nuevaLista.setArguments(bundle);
 
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame, nuevaLista).addToBackStack(null);
+                fr.replace(R.id.frame, nuevaLista);
                 fr.commit();
             }
         });

@@ -77,7 +77,7 @@ public class NuevoProductoLista extends Fragment {
                 listaHabitual.setArguments(bundle);
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, listaHabitual).addToBackStack(null);
+                ft.replace(R.id.frame, listaHabitual);
                 ft.commit();
             }
         });

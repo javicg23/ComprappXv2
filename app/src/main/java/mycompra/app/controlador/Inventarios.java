@@ -39,8 +39,8 @@ public class Inventarios extends Fragment {
         btnNevera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction().addToBackStack(null);
-                ft.replace(R.id.frame, new Nevera()).addToBackStack(null);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.frame, new Nevera());
                 ft.commit();
             }
         });
@@ -48,8 +48,8 @@ public class Inventarios extends Fragment {
         btnCongelador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction().addToBackStack(null);
-                ft.replace(R.id.frame, new Congelador()).addToBackStack(null);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.frame, new Congelador());
                 ft.commit();
             }
         });
@@ -57,8 +57,8 @@ public class Inventarios extends Fragment {
         btnDespensa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction().addToBackStack(null);
-                ft.replace(R.id.frame, new Despensa()).addToBackStack(null);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.frame, new Despensa());
                 ft.commit();
             }
         });

@@ -41,39 +41,23 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnBorrarListaHabitual"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="#F76F8F"
+        app:srcCompat="@drawable/ic_baseline_delete_24px" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAnyadirProductoAListaHabitual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:padding="@dimen/fab_margin">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnBorrarListaHabitual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="#F76F8F"
-            app:srcCompat="@drawable/ic_baseline_delete_24px" />
-
-        <ImageButton
-            android:id="@+id/imageButtonEscaner"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_menu_camera" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnAnyadirProductoAListaHabitual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="#ACF76F"
-            app:srcCompat="@drawable/ic_baseline_control_point_24px" />
-    </LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="#ACF76F"
+        app:srcCompat="@drawable/ic_baseline_control_point_24px" />
 </RelativeLayout>

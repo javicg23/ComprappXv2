@@ -73,7 +73,7 @@ public class NuevaLista extends Fragment {
                     }
 
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.frame, new Listas()).addToBackStack(null);
+                    ft.replace(R.id.frame, new Listas());
                     ft.commit();
                 } else {
                     if (!iteraProd.hasNext()) {
@@ -89,7 +89,7 @@ public class NuevaLista extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, new Listas()).addToBackStack(null);
+                ft.replace(R.id.frame, new Listas());
                 ft.commit();
             }
         });
