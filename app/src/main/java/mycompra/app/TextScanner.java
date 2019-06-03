@@ -152,9 +152,6 @@ public class TextScanner extends AppCompatActivity {
                         TextBlock myItem = items.valueAt(i);
 
                         ParserContexto.parser.parseProducto(myItem.getValue());
-
-                        //sb.append(myItem.getValue());
-                        //sb.append("\n");
                     }
 
                     ParserContexto.createProductos();
