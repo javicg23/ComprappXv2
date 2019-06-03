@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import mycompra.app.R;
+import mycompra.app.logica.ControlCaducidad;
 
 public class AdapterDespensa extends RecyclerView.Adapter<AdapterDespensa.ViewHolderDespensa> {
 
@@ -55,6 +56,8 @@ public class AdapterDespensa extends RecyclerView.Adapter<AdapterDespensa.ViewHo
             cantidadD.setText(s);
             productD.setText(s1);
             cadD.setText(s2);
+
+            ControlCaducidad.checkCaducidad(s2, cantidadD, productD, cadD);
         }
     }
 }

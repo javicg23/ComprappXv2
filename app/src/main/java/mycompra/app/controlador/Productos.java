@@ -15,7 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import mycompra.app.R;
 import mycompra.app.adaptersRecycler.AdapterProductos;
@@ -32,9 +35,7 @@ import mycompra.app.modelo.Producto;
  */
 public class Productos extends Fragment {
 
-    private ArrayList<String> listDatosProd;
-    private ArrayList<String> listProduct;
-    private ArrayList<String> listCatProd;
+    private ArrayList<String> listDatosProd, listProduct, listCatProd, listCaducidades;
     private Iterador<Producto> listaProductos;
 
     public Productos() {
@@ -53,7 +54,7 @@ public class Productos extends Fragment {
 
         llenarListaProd();
 
-        AdapterProductos adapter = new AdapterProductos(listDatosProd, listProduct, listCatProd);
+        AdapterProductos adapter = new AdapterProductos(listDatosProd, listProduct, listCatProd, listCaducidades);
 
         recyclerView.setAdapter(adapter);
 
@@ -112,11 +113,13 @@ public class Productos extends Fragment {
         listDatosProd = new ArrayList<>();
         listProduct = new ArrayList<>();
         listCatProd = new ArrayList<>();
+        listCaducidades = new ArrayList<>();
 
         while (listaProductos.hasNext()) {
             if (listaProductos.actual().getIdInventario() != 0) {
                 listDatosProd.add(String.valueOf(listaProductos.actual().getCantidad()));
                 listProduct.add(listaProductos.actual().getNombre());
+                listCaducidades.add(listaProductos.actual().getCaducidad());
                 if (listaProductos.actual().getIdCategoria() != 0) {
                     listCatProd.add(listaCategorias.get(listaProductos.actual().getIdCategoria() - 1).getNombre());
                 } else {
