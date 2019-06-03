@@ -19,7 +19,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import mycompra.app.MainActivity;
 import mycompra.app.R;
 import mycompra.app.dao.MesDAO;
 import mycompra.app.dao.TicketDAO;
@@ -157,6 +156,5 @@ public class InfoMensual extends Fragment {
         });
         return view;
     }
-
 
 }
