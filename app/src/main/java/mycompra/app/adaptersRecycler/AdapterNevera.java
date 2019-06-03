@@ -59,7 +59,7 @@ public class AdapterNevera extends RecyclerView.Adapter<AdapterNevera.ViewHolder
             product.setText(s1);
             cad.setText(s2);
 
-            ControlCaducidad.checkCaducidad(s2, cantidad, product, cad);
+            ControlCaducidad.setColorCaducidad(s2, cantidad, product, cad);
         }
     }
 }

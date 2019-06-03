@@ -58,7 +58,7 @@ public class AdapterCongelador extends RecyclerView.Adapter<AdapterCongelador.Vi
             productC.setText(s1);
             cadC.setText(s2);
 
-            ControlCaducidad.checkCaducidad(s2, cantidadC, productC, cadC);
+            ControlCaducidad.setColorCaducidad(s2, cantidadC, productC, cadC);
         }
     }
 }

@@ -57,7 +57,7 @@ public class AdapterDespensa extends RecyclerView.Adapter<AdapterDespensa.ViewHo
             productD.setText(s1);
             cadD.setText(s2);
 
-            ControlCaducidad.checkCaducidad(s2, cantidadD, productD, cadD);
+            ControlCaducidad.setColorCaducidad(s2, cantidadD, productD, cadD);
         }
     }
 }

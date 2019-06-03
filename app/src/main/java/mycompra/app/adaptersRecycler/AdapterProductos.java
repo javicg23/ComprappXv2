@@ -1,6 +1,5 @@
 package mycompra.app.adaptersRecycler;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 import mycompra.app.R;
 import mycompra.app.logica.ControlCaducidad;
@@ -66,7 +62,7 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.View
             productos.setText(s1);
             categoria.setText(s2);
 
-            ControlCaducidad.checkCaducidad(caducidades, datosProd, productos, categoria);
+            ControlCaducidad.setColorCaducidad(caducidades, datosProd, productos, categoria);
         }
     }
 }
