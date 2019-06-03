@@ -8,8 +8,8 @@ import mycompra.app.iterador.Iterador;
 import mycompra.app.modelo.Categoria;
 import mycompra.app.modelo.Tag;
 
-public class ClasificadorCategoria {
-    //private Categoria tags;
+public class ClasificadorCategoria
+{
     private static CategoriaDAO categoriaDAO;
     private static TagDAO tagDAO;
 
@@ -25,13 +25,13 @@ public class ClasificadorCategoria {
 
     public static Categoria findCategoria(String nombreProd) {
 
-        while (categorias.hasNext())// Recorre categorias
+        while (categorias.hasNext())
         {
             Categoria categoriaActual = categorias.next();
 
             tagsCategoria = tagDAO.getTagListByCategoria(categoriaActual.getId());
 
-            while (tagsCategoria.hasNext()) // Recorre tags de la categoria actual
+            while (tagsCategoria.hasNext())
             {
                 if (tagsCategoria.next().getNombre().contains(nombreProd)) {
                     return categoriaActual;

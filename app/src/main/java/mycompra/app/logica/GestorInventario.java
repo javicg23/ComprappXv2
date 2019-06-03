@@ -50,9 +50,4 @@ public class GestorInventario {
         productoDAO.insert(prod);
         prodTicketDAO.insert(relacion);
     }
-
-    /*public ArrayList<Producto> getProductos(Inventario inventario)
-    {
-        return inventario.getProductos();
-    }*/
 }
