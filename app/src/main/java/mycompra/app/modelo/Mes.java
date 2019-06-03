@@ -1,6 +1,6 @@
 package mycompra.app.modelo;
 
-public class Mes extends AbstractMes{
+public class Mes extends AbstractMes {
 
     public static final String TABLE = "Mes";
 
@@ -35,6 +35,7 @@ public class Mes extends AbstractMes{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public int getId() {
         return id;
     }

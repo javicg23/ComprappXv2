@@ -11,39 +11,34 @@ import mycompra.app.iterador.AgregadoConcreto;
 import mycompra.app.iterador.Iterador;
 import mycompra.app.iterador.IteradorConcreto;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
-public class AgregadoTest
-{
-    //Agregado<Integer> agregador;
+public class AgregadoTest {
 
     @Before
-    public void crearIterador()
-    {
+    public void crearIterador() {
         Agregado<Integer> agregador = new AgregadoConcreto<>();
         Iterador<Integer> iterador = agregador.iterador();
         Iterador<Integer> iteradorCorrecto = new IteradorConcreto<>(new ArrayList<Integer>());
 
-        assertEquals(iterador.size(),iteradorCorrecto.size());
-        assertEquals(agregador.size(), 0);
+        assertEquals(iteradorCorrecto.size(), iterador.size());
+        assertEquals(0, agregador.size());
     }
 
     @Test
-    public void agregarCorrecto()
-    {
+    public void agregarCorrecto() {
         Agregado<Integer> agregador = new AgregadoConcreto<>();
 
         for (int i = 0; i < 5; i++) {
             agregador.add(i);
         }
 
-        assertEquals(agregador.size(), 5);
+        assertEquals(5, agregador.size());
     }
 
     @After
-    public void eliminarCorrecto()
-    {
+    public void eliminarCorrecto() {
         Agregado<Integer> agregador = new AgregadoConcreto<>();
 
         for (int i = 0; i < 5; i++) {
@@ -52,6 +47,6 @@ public class AgregadoTest
 
         agregador.delete(0);
 
-        assertEquals(agregador.size(), 4);
+        assertEquals(4, agregador.size());
     }
 }

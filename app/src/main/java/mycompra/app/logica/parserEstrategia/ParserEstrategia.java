@@ -1,6 +1,5 @@
 package mycompra.app.logica.parserEstrategia;
 
-public interface ParserEstrategia
-{
-    public void parseProducto(String prod);
+public interface ParserEstrategia {
+    void parseProducto(String prod);
 }

@@ -11,39 +11,29 @@ import mycompra.app.modelo.Producto;
 import mycompra.app.modelo.ProductoTicket;
 import mycompra.app.modelo.Ticket;
 
-public class ParserContexto
-{
-    static ProductoDAO prodDao;
-    static TicketDAO ticketDAO;
-
+public class ParserContexto {
     public static ArrayList<Producto> productos;
     public static ArrayList<Integer> cantidades;
     public static ArrayList<String> nombres;
     public static ArrayList<Double> precios;
-
     public static int contadorPrecioKilo;
     public static int numProductosNuevos;
     public static double precioTotalTicket;
-
     public static ParserEstrategia parser;
+    static ProductoDAO prodDao;
+    static TicketDAO ticketDAO;
 
-    public ParserContexto(int supermercado)
-    {
-        if (supermercado == 1)
-        {
+    public ParserContexto(int supermercado) {
+        if (supermercado == 1) {
             parser = new ParserMercadonaEstrategia();
-        }
-        else if (supermercado == 2)
-        {
+        } else if (supermercado == 2) {
             parser = new ParserConsumEstrategia();
+        } else if (supermercado == 3) {
         }
-        else if (supermercado == 3)
-        {}
 
     }
 
-    public static void createProductos()
-    {
+    public static void createProductos() {
         int cantidad;
         String nombre;
         double precio;
@@ -51,8 +41,7 @@ public class ParserContexto
         Ticket nuevoTicket = new Ticket();
         ticketDAO.insert(nuevoTicket);
 
-        for(int i = 1; i <= numProductosNuevos; i++)
-        {
+        for (int i = 1; i <= numProductosNuevos; i++) {
             Producto nuevoProducto = new Producto();
             nuevoProducto.setId(prodDao.getLastProducto().getId() + i);
 

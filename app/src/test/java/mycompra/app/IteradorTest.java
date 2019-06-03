@@ -8,51 +8,47 @@ import java.util.ArrayList;
 import mycompra.app.iterador.Iterador;
 import mycompra.app.iterador.IteradorConcreto;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 
 
-public class IteradorTest
-{
-    ArrayList<Integer> lista;
-    Iterador<Integer> iterador;
+public class IteradorTest {
+    private ArrayList<Integer> lista;
+    private Iterador<Integer> iterador;
 
     @Before
-    public void llenarLista()
-    {
+    public void llenarLista() {
         lista = new ArrayList<>();
 
-        for(int i = 0; i < 5; i++)
-        {
+        for (int i = 0; i < 5; i++) {
             lista.add(i);
         }
     }
 
     @Test
-    public void crearIterador()
-    {
+    public void crearIterador() {
         iterador = new IteradorConcreto<>(lista);
 
-        assertEquals((Integer) iterador.get(0),(Integer) 0);
-        assertEquals((Integer) iterador.get(1),(Integer) 1);
-        assertEquals((Integer) iterador.get(2),(Integer) 2);
-        assertEquals((Integer) iterador.get(3),(Integer) 3);
-        assertEquals((Integer) iterador.get(4),(Integer) 4);
+        assertEquals((Integer) 0, iterador.get(0));
+        assertEquals((Integer) 1, iterador.get(1));
+        assertEquals((Integer) 2, iterador.get(2));
+        assertEquals((Integer) 3, iterador.get(3));
+        assertEquals((Integer) 4, iterador.get(4));
     }
 
     @Test
-    public void iterear()
-    {
+    public void iterear() {
         int posicion = 0;
         iterador = new IteradorConcreto<>(lista);
 
-        while(iterador.hasNext())
-        {
+        while (iterador.hasNext()) {
             int actual = iterador.next();
             assertEquals(actual, posicion);
             posicion++;
         }
 
-        assertEquals(iterador.hasNext(), false);
+        assertFalse(iterador.hasNext());
     }
 
     @Test
@@ -60,36 +56,34 @@ public class IteradorTest
         iterador = new IteradorConcreto<>(lista);
         iterador.inicio();
 
-        assertEquals(iterador.getPrevio(), null);
+        assertNull(iterador.getPrevio());
         iterador.avanza();
-        assertEquals((Integer) iterador.getPrevio(), (Integer) 0);
+        assertEquals((Integer) 0, iterador.getPrevio());
     }
 
     @Test
-    public void PrevioCorrecto(){
+    public void PrevioCorrecto() {
 
         iterador = new IteradorConcreto<>(lista);
         iterador.inicio();
         iterador.avanza();
         iterador.avanza();
-        assertEquals((Integer) iterador.previo(), (Integer) 1);
+        assertEquals((Integer) 1, iterador.previo());
     }
 
     @Test
-    public void iterear2()
-    {
+    public void iterear2() {
         int posicion = 0;
         iterador = new IteradorConcreto<>(lista);
 
-        while(iterador.hasNext())
-        {
+        while (iterador.hasNext()) {
             int actual = iterador.actual();
             assertEquals(actual, posicion);
             posicion++;
             iterador.avanza();
         }
 
-        assertEquals(iterador.hasNext(), false);
+        assertFalse(iterador.hasNext());
     }
 }
 

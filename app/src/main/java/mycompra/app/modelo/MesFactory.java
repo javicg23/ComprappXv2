@@ -8,6 +8,7 @@ import mycompra.app.iterador.Iterador;
 public class MesFactory {
 
     private static MesDAO mesDAO = null;
+
     public static AbstractMes getMes(Context context, String nombre, int anyo) {
 
         mesDAO = new MesDAO(context);

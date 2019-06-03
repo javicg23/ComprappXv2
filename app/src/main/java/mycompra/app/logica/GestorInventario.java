@@ -1,7 +1,6 @@
 package mycompra.app.logica;
-import android.content.Context;
 
-import java.util.ArrayList;
+import android.content.Context;
 
 import mycompra.app.dao.CategoriaDAO;
 import mycompra.app.dao.InventarioDAO;
@@ -13,8 +12,7 @@ import mycompra.app.modelo.Inventario;
 import mycompra.app.modelo.Producto;
 import mycompra.app.modelo.ProductoTicket;
 
-public class GestorInventario
-{
+public class GestorInventario {
     private static InventarioDAO invDao;
     private static ProductoDAO productoDAO;
     private static CategoriaDAO catDAO;
@@ -26,8 +24,7 @@ public class GestorInventario
     private static ControlCaducidad caducidades;
 
 
-    public GestorInventario(Context context)
-    {
+    public GestorInventario(Context context) {
         invDao = new InventarioDAO(context);
         productoDAO = new ProductoDAO(context);
         prodTicketDAO = new ProductoTicketDAO(context);
@@ -35,16 +32,12 @@ public class GestorInventario
         inventarios = invDao.getInventarioList();
     }
 
-    public static void guardarProducto(Producto prod, ProductoTicket relacion)
-    {
-        while (inventarios.hasNext())
-        {
+    public static void guardarProducto(Producto prod, ProductoTicket relacion) {
+        while (inventarios.hasNext()) {
             categorias = catDAO.getCategoriaListByInventario(inventarios.next().getId());
 
-            while (categorias.hasNext())
-            {
-                if (prod.getNombre().contains(categorias.next().getNombre()))
-                {
+            while (categorias.hasNext()) {
+                if (prod.getNombre().contains(categorias.next().getNombre())) {
                     prod.setIdInventario(categorias.next().getIdInventario());
                     commitProducto(prod, relacion);
                     return;
@@ -53,8 +46,7 @@ public class GestorInventario
         }
     }
 
-    private static void commitProducto(Producto prod, ProductoTicket relacion)
-    {
+    private static void commitProducto(Producto prod, ProductoTicket relacion) {
         productoDAO.insert(prod);
         prodTicketDAO.insert(relacion);
     }

@@ -69,5 +69,7 @@ public class IteradorConcreto<T> implements Iterador {
     }
 
     @Override
-    public int size() { return list.size(); }
+    public int size() {
+        return list.size();
+    }
 }

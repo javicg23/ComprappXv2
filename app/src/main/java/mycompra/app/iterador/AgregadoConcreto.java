@@ -24,6 +24,8 @@ public class AgregadoConcreto<T> implements Agregado<T> {
     }
 
     @Override
-    public  int size() { return lista.size(); }
+    public int size() {
+        return lista.size();
+    }
 
 }
