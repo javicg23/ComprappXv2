@@ -1,5 +1,7 @@
 package mycompra.app.controlador;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,10 +80,24 @@ public class ListaHabitual extends Fragment {
         eliminarProd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listaDAO.delete(lista.getId());
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame, new Listas());
-                fr.commit();
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Borrar Lista")
+                        .setMessage("¿Está seguro de que desea eliminar esta lista?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                listaDAO.delete(lista.getId());
+                                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                ft.replace(R.id.frame, new Listas());
+                                ft.commit();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_menu_delete)
+                        .setCancelable(false)
+                        .show();
             }
         });
 

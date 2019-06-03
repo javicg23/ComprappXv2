@@ -1,7 +1,9 @@
 package mycompra.app.controlador;
 
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,8 +99,22 @@ public class DetalleProdInventario extends Fragment implements AdapterView.OnIte
         btnBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productoDAO.delete(producto.getId());
-                devolverAFragmentAnterior();
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Borrar Producto")
+                        .setMessage("¿Está seguro de que desea eliminar este producto?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                productoDAO.delete(producto.getId());
+                                devolverAFragmentAnterior();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_menu_delete)
+                        .setCancelable(false)
+                        .show();
             }
         });
 
