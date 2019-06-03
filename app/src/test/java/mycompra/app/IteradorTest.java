@@ -56,12 +56,23 @@ public class IteradorTest
     }
 
     @Test
-    public void getPrevioCorrecto()
-    {
+    public void getPrevioCorrecto() {
         iterador = new IteradorConcreto<>(lista);
         iterador.inicio();
 
         assertEquals(iterador.getPrevio(), null);
+        iterador.avanza();
+        assertEquals((Integer) iterador.getPrevio(), (Integer) 0);
+    }
+
+    @Test
+    public void PrevioCorrecto(){
+
+        iterador = new IteradorConcreto<>(lista);
+        iterador.inicio();
+        iterador.avanza();
+        iterador.avanza();
+        assertEquals((Integer) iterador.previo(), (Integer) 1);
     }
 
     @Test
