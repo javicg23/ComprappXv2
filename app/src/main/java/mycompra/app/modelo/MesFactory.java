@@ -22,4 +22,15 @@ public class MesFactory {
         }
         return new NullMes();
     }
+
+    public static AbstractMes checkExistsInMesList(Iterador<Mes> listaMeses, String nombre, int anyo) {
+
+        while (listaMeses.hasNext()) {
+            if (anyo == listaMeses.actual().getAnyo() && listaMeses.actual().getNombre().equalsIgnoreCase(nombre)) {
+                return listaMeses.actual();
+            }
+            listaMeses.avanza();
+        }
+        return new NullMes();
+    }
 }
