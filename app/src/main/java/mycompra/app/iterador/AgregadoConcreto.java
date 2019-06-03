@@ -23,4 +23,7 @@ public class AgregadoConcreto<T> implements Agregado<T> {
         return new IteradorConcreto<T>(lista);
     }
 
+    @Override
+    public  int size() { return lista.size(); }
+
 }

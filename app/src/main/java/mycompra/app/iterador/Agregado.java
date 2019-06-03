@@ -6,4 +6,6 @@ public interface Agregado<T> {
     void delete(T object);
 
     Iterador<T> iterador();
+
+    int size();
 }

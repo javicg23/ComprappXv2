@@ -13,7 +13,7 @@ public class IteradorConcreto<T> implements Iterador {
 
     @Override
     public boolean hasNext() {
-        return cursor != list.size();
+        return cursor < list.size();
     }
 
     @Override
@@ -67,4 +67,7 @@ public class IteradorConcreto<T> implements Iterador {
     public void avanza() {
         cursor++;
     }
+
+    @Override
+    public int size() { return list.size(); }
 }
