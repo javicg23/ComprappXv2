@@ -133,9 +133,7 @@
                     android:id="@+id/btnConfirmarInfoMensual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Confirmar Presupuesto"
-                    android:padding="@dimen/fab_margin"
-                    android:textSize="20sp"/>
+                    android:text="Confirmar Presupuesto" />
             </LinearLayout>
 
         </LinearLayout>
